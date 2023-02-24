@@ -1,9 +1,14 @@
 import { Action, ActionPanel, Detail, getPreferenceValues } from "@raycast/api";
+import dayjs from "dayjs";
+import relativetime from "dayjs/plugin/relativeTime";
 import Preferences from "../model/preferences";
 import MixpanelUser from "../model/user";
 
 export default function UserDetail(props: { user: MixpanelUser }) {
   const prefs = getPreferenceValues<Preferences>();
+  dayjs.extend(relativetime);
+
+  const time = dayjs(props.user.last_seen);
 
   return (
     <Detail
@@ -21,7 +26,7 @@ export default function UserDetail(props: { user: MixpanelUser }) {
         <Detail.Metadata>
           <Detail.Metadata.Label title="Email" text={props.user.email} />
           <Detail.Metadata.Separator />
-          <Detail.Metadata.Label title="Last seen" text={props.user.last_seen} />
+          <Detail.Metadata.Label title="Last seen" text={time.fromNow()} />
           <Detail.Metadata.Separator />
           {(props.user.android_app_version?.length ?? 0) !== 0 ? (
             <Detail.Metadata.Label title="Android app version" text={props.user.android_app_version} />
