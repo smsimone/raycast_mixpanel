@@ -1,13 +1,14 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "mixpanel",
-  "title": "mixpanel",
+  "title": "Mixpanel",
   "description": "Search for a user inside mixpanel",
-  "icon": "command-icon.png",
+  "icon": "mixpanel_logo.png",
   "author": "iamsmaso",
   "categories": [
     "Developer Tools",
-    "Data"
+    "Data",
+    "Productivity"
   ],
   "license": "MIT",
   "commands": [

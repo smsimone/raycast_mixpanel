@@ -1,6 +1,7 @@
 import { Action, ActionPanel, Form, showToast, Toast, useNavigation } from "@raycast/api";
 import { useState } from "react";
 import findUsers from "../api/mixpanel_api";
+import UserDetail from "./user_detail";
 import UserList from "./user_list";
 
 export default function SearchByEmail() {
@@ -16,10 +17,11 @@ export default function SearchByEmail() {
       showToast({
         style: Toast.Style.Failure,
         title: "Something went wrong",
-        message: "No users found",
+        message: `No users found with key ${query}`,
       });
     }
-    push(<UserList users={users} />);
+    if (users.length > 1) push(<UserList users={users} />);
+    else if (users.length == 1) push(<UserDetail user={users[0]} />);
   }
 
   return (
@@ -27,11 +29,21 @@ export default function SearchByEmail() {
       isLoading={isLoading}
       actions={
         <ActionPanel>
-          <Action.SubmitForm onSubmit={onFormSubmit} />
+          <Action.SubmitForm onSubmit={onFormSubmit} title="Search" />
         </ActionPanel>
       }
     >
-      <Form.TextField id="email_field" placeholder="data" onChange={setQuery} />
+      <Form.Description
+        title="Description"
+        text="Find a user present in your mixpanel project given his name or email"
+      />
+      <Form.TextField
+        id="email_field"
+        onChange={setQuery}
+        autoFocus={true}
+        title="Email or name"
+        info="Search a user by his email or name"
+      />
     </Form>
   );
 }
