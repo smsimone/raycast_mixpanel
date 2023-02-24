@@ -16,11 +16,39 @@
       "title": "Search for a user",
       "subtitle": "Find user byt it's name on mixpanel",
       "description": "Search for a user inside your mixpanel dashboard",
-      "mode": "view"
+      "mode": "view",
+      "preferences": [
+        {
+          "label": "Project id",
+          "type": "textfield",
+          "title": "Project id",
+          "name": "project_id",
+          "description": "Mixpanel project id",
+          "required": true
+        },
+        {
+          "label": "Service account",
+          "type": "textfield",
+          "title": "Service account",
+          "name": "service_account",
+          "description": "Service account username",
+          "required": true
+        },
+        {
+          "label": "Service account secret",
+          "type": "textfield",
+          "title": "Service account secret",
+          "name": "service_account_secret",
+          "description": "Service account secret",
+          "required": true
+        }
+      ]
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.48.3"
+    "@raycast/api": "^1.48.3",
+    "api": "^5.0.7",
+    "node-fetch": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "18.8.3",
