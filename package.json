@@ -14,7 +14,7 @@
   "commands": [
     {
       "name": "index",
-      "title": "Search for a user",
+      "title": "Search for A User",
       "subtitle": "Find user byt it's name on mixpanel",
       "description": "Search for a user inside your mixpanel dashboard",
       "mode": "view",
