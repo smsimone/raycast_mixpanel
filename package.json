@@ -1,7 +1,6 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "mixpanel",
-  "title": "Mixpanel",
+  "name": "mixpanel", "title": "Mixpanel",
   "description": "Search for a user inside mixpanel",
   "icon": "mixpanel_logo.png",
   "author": "iamsmaso",
@@ -48,7 +47,6 @@
   ],
   "dependencies": {
     "@raycast/api": "^1.48.3",
-    "api": "^5.0.7",
     "dayjs": "^1.11.7",
     "node-fetch": "^3.3.0"
   },
