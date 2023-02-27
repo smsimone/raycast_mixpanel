@@ -17,7 +17,7 @@ export default function SearchByEmail() {
       showToast({
         style: Toast.Style.Failure,
         title: "Something went wrong",
-        message: `No users found with key ${query}`,
+        message: `No users found with ${query}`,
       });
     }
     if (users.length > 1) push(<UserList users={users} />);
